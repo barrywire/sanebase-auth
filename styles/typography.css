@@ -1,0 +1,20 @@
+/* Heading Styles */
+h1,
+h2 {
+  @apply p-0 mb-2 tracking-tight font-inter-tight;
+}
+
+h3,
+h4,
+h5,
+h6 {
+  @apply p-0 mb-2 tracking-tight font-lexend;
+}
+
+body {
+  @apply font-inter;
+}
+
+a {
+  @apply font-inter;
+}
