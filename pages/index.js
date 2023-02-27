@@ -1,207 +1,128 @@
-// React imports
-import { useState } from 'react'
-
 // Next imports
 import Head from 'next/head'
 
-// Package imports
-import { Dialog } from '@headlessui/react'
-import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
+// Component imports
+import SocialButton from '../components/buttons/SocialButton'
 
-const navigation = [
-	{ name: 'Product', href: '#' },
-	{ name: 'Features', href: '#' },
-	{ name: 'Marketplace', href: '#' },
-	{ name: 'Company', href: '#' },
-]
-
-const stack = [
-	{ name: 'React 18.2', href: 'https://reactjs.org/' },
-	{ name: 'Next.js 12.3', href: 'https://nextjs.org/' },
-	{ name: 'Tailwind CSS 3.1', href: 'https://tailwindcss.com/' },
-	{ name: 'Headless UI 1.7', href: 'https://headlessui.dev/' },
-	{ name: 'Heroicons 2.0', href: 'https://heroicons.com/' },
-]
 
 export default function Home()
 {
-	const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
-
 	return (
 		<>
 			<Head>
-				<title>Next Basic Frontend</title>
-				<meta name='description' content='Custom nextjs boilerplate' />
+				<title>SaneBase</title>
+				<meta name='description' content='Nextjs, Firebase, Firestore, Sanity for authentication boilerplate' />
 				<link rel='icon' href='/favicon.ico' />
 			</Head>
-			
-			<div className="isolate bg-white">
-				<div className="absolute inset-x-0 top-[-10rem] -z-10 transform-gpu overflow-hidden blur-3xl sm:top-[-20rem]">
-					<svg
-						className="relative left-[calc(50%-11rem)] -z-10 h-[21.1875rem] max-w-none -translate-x-1/2 rotate-[30deg] sm:left-[calc(50%-30rem)] sm:h-[42.375rem]"
-						viewBox="0 0 1155 678"
-						xmlns="http://www.w3.org/2000/svg"
-					>
-						<path
-							fill="url(#45de2b6b-92d5-4d68-a6a0-9b9b2abad533)"
-							fillOpacity=".3"
-							d="M317.219 518.975L203.852 678 0 438.341l317.219 80.634 204.172-286.402c1.307 132.337 45.083 346.658 209.733 145.248C936.936 126.058 882.053-94.234 1031.02 41.331c119.18 108.451 130.68 295.337 121.53 375.223L855 299l21.173 362.054-558.954-142.079z"
-						/>
-						<defs>
-							<linearGradient
-								id="45de2b6b-92d5-4d68-a6a0-9b9b2abad533"
-								x1="1155.49"
-								x2="-78.208"
-								y1=".177"
-								y2="474.645"
-								gradientUnits="userSpaceOnUse"
-							>
-								<stop stopColor="#9089FC" />
-								<stop offset={1} stopColor="#FF80B5" />
-							</linearGradient>
-						</defs>
-					</svg>
+
+			<div className="min-h-full flex flex-col justify-center py-12 sm:px-6 lg:px-8">
+				<div className="sm:mx-auto sm:w-full sm:max-w-md">
+
+					<h2 className="my-6 text-center text-7xl font-extrabold text-orange-500">SaneBase</h2>
+					<h2 className="mt-6 text-center text-3xl font-extrabold text-gray-900">Sign in to your account</h2>
+					<p className="mt-2 text-center text-sm text-gray-600">
+						Or{' '}
+						<a href="#" className="font-medium text-orange-600 hover:text-orange-500">
+							start your 14-day free trial
+						</a>
+					</p>
 				</div>
-				<div className="px-6 pt-6 lg:px-8">
-					<nav className="flex items-center justify-between" aria-label="Global">
-						<div className="flex lg:flex-1">
-							<a href="#" className="-m-1.5 p-1.5">
-								<span className="sr-only">Your Company</span>
-								<img className="h-8" src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600" alt="" />
-							</a>
-						</div>
-						<div className="flex lg:hidden">
-							<button
-								type="button"
-								className="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-700"
-								onClick={() => setMobileMenuOpen(true)}
-							>
-								<span className="sr-only">Open main menu</span>
-								<Bars3Icon className="h-6 w-6" aria-hidden="true" />
-							</button>
-						</div>
-						<div className="hidden lg:flex lg:gap-x-12">
-							{navigation.map((item) => (
-								<a key={item.name} href={item.href} className="text-lg font-lexend leading-6 text-gray-900">
-									{item.name}
-								</a>
-							))}
-						</div>
-						<div className="hidden lg:flex lg:flex-1 lg:justify-end">
-							<a href="#" className="text-sm font-lexend leading-6 text-gray-900">
-								Log in <span aria-hidden="true">&rarr;</span>
-							</a>
-						</div>
-					</nav>
-					<Dialog as="div" open={mobileMenuOpen} onClose={setMobileMenuOpen}>
-						<Dialog.Panel focus="true" className="fixed inset-0 z-10 overflow-y-auto bg-white px-6 py-6 lg:hidden">
-							<div className="flex items-center justify-between">
-								<a href="#" className="-m-1.5 p-1.5">
-									<span className="sr-only">Your Company</span>
-									<img className="h-8" src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600" alt="" />
-								</a>
-								<button
-									type="button"
-									className="-m-2.5 rounded-md p-2.5 text-gray-700"
-									onClick={() => setMobileMenuOpen(false)}
-								>
-									<span className="sr-only">Close menu</span>
-									<XMarkIcon className="h-6 w-6" aria-hidden="true" />
-								</button>
-							</div>
-							<div className="mt-6 flow-root">
-								<div className="-my-6 divide-y divide-gray-500/10">
-									<div className="space-y-2 py-6">
-										{navigation.map((item) => (
-											<a
-												key={item.name}
-												href={item.href}
-												className="-mx-3 block rounded-lg py-2 px-3 text-base leading-7 text-gray-900 hover:bg-gray-400/10"
-											>
-												{item.name}
-											</a>
-										))}
-									</div>
-									<div className="py-6">
-										<a
-											href="#"
-											className="-mx-3 block rounded-lg py-2.5 px-3 text-base font-semibold leading-6 text-gray-900 hover:bg-gray-400/10"
-										>
-											Log in
-										</a>
-									</div>
+
+				<div className="mt-8 sm:mx-auto sm:w-full sm:max-w-md">
+					<div className="bg-white py-8 px-4 shadow sm:rounded-lg sm:px-10">
+						<form className="space-y-6" action="#" method="POST">
+							<div>
+								<label htmlFor="email" className="block text-sm font-medium text-gray-700">
+									Email address
+								</label>
+								<div className="mt-1">
+									<input
+										id="email"
+										name="email"
+										type="email"
+										autoComplete="email"
+										required
+										className="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-orange-500 focus:border-orange-500 sm:text-sm"
+									/>
 								</div>
 							</div>
-						</Dialog.Panel>
-					</Dialog>
-				</div>
-				<main>
-					<div className="relative px-6 lg:px-8">
-						<div className="mx-auto max-w-2xl py-32 sm:py-48 lg:py-56">
-							<div className="hidden sm:mb-8 sm:flex sm:justify-center">
-								<div className="relative rounded-full font-inter py-1 px-3 text-sm leading-6 text-gray-600 ring-1 ring-gray-900/10 hover:ring-gray-900/20">
-									Announcing our next round of funding.{' '}
-									<a href="#" className="font-inter text-indigo-700">
-										<span className="absolute inset-0" aria-hidden="true" />
-										Read more <span aria-hidden="true">&rarr;</span>
+
+							<div>
+								<label htmlFor="password" className="block text-sm font-medium text-gray-700">
+									Password
+								</label>
+								<div className="mt-1">
+									<input
+										id="password"
+										name="password"
+										type="password"
+										autoComplete="current-password"
+										required
+										className="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-orange-500 focus:border-orange-500 sm:text-sm"
+									/>
+								</div>
+							</div>
+
+							<div className="flex items-center justify-between">
+								<div className="flex items-center">
+									<input
+										id="remember-me"
+										name="remember-me"
+										type="checkbox"
+										className="h-4 w-4 text-orange-600 focus:ring-orange-500 border-gray-300 rounded"
+									/>
+									<label htmlFor="remember-me" className="ml-2 block text-sm text-gray-900">
+										Remember me
+									</label>
+								</div>
+
+								<div className="text-sm">
+									<a href="#" className="font-medium text-orange-600 hover:text-orange-500">
+										Forgot your password?
 									</a>
 								</div>
 							</div>
-							<div className="text-center">
-								<h1 className="text-4xl text-gray-900 sm:text-6xl">
-									Starter pack to expedite your development
-								</h1>
-								<p className="mt-6 text-lg leading-8 text-gray-600">
-									Anim aute id magna aliqua ad ad non deserunt sunt. Qui irure qui lorem cupidatat commodo. Elit sunt amet
-									fugiat veniam occaecat fugiat aliqua.
-								</p>
-								<div className="mt-10 flex items-center justify-center gap-x-6">
-									<div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
-										{stack.map((item) => (
-											<div
-												key={item.name}
-												className="relative rounded-lg border border-gray-300 bg-white px-6 py-5 shadow-sm flex items-center space-x-3 hover:border-gray-400 focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-indigo-500"
-											>
-												<div className="flex-1 min-w-0">
-													<a href={`${ item.href }`} target='_blank' rel='noreferrer' className="focus:outline-none">
-														<span className="absolute inset-0" aria-hidden="true" />
-														<p className="text-sm font-medium text-gray-900">{item.name}</p>
-													</a>
-												</div>
-											</div>
-										))}
-									</div>
+
+							<div>
+								<button
+									type="submit"
+									className="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-orange-600 hover:bg-orange-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-orange-500"
+								>
+									Sign in
+								</button>
+							</div>
+						</form>
+
+						<div className="mt-6">
+							<div className="relative">
+								<div className="absolute inset-0 flex items-center">
+									<div className="w-full border-t border-gray-300" />
+								</div>
+								<div className="relative flex justify-center text-sm">
+									<span className="px-2 bg-white text-gray-500">Or continue with</span>
 								</div>
 							</div>
-						</div>
-						<div className="absolute inset-x-0 top-[calc(100%-13rem)] -z-10 transform-gpu overflow-hidden blur-3xl sm:top-[calc(100%-30rem)]">
-							<svg
-								className="relative left-[calc(50%+3rem)] h-[21.1875rem] max-w-none -translate-x-1/2 sm:left-[calc(50%+36rem)] sm:h-[42.375rem]"
-								viewBox="0 0 1155 678"
-								xmlns="http://www.w3.org/2000/svg"
-							>
-								<path
-									fill="url(#ecb5b0c9-546c-4772-8c71-4d3f06d544bc)"
-									fillOpacity=".3"
-									d="M317.219 518.975L203.852 678 0 438.341l317.219 80.634 204.172-286.402c1.307 132.337 45.083 346.658 209.733 145.248C936.936 126.058 882.053-94.234 1031.02 41.331c119.18 108.451 130.68 295.337 121.53 375.223L855 299l21.173 362.054-558.954-142.079z"
+
+							<div className="mt-6 grid grid-cols-3 gap-3">
+
+								<SocialButton
+									provider='google'
+									text='Sign in with Google'
 								/>
-								<defs>
-									<linearGradient
-										id="ecb5b0c9-546c-4772-8c71-4d3f06d544bc"
-										x1="1155.49"
-										x2="-78.208"
-										y1=".177"
-										y2="474.645"
-										gradientUnits="userSpaceOnUse"
-									>
-										<stop stopColor="#9089FC" />
-										<stop offset={1} stopColor="#FF80B5" />
-									</linearGradient>
-								</defs>
-							</svg>
+
+								<SocialButton
+									provider='twitter'
+									text='Sign in with Google'
+								/>
+
+								<SocialButton
+									provider='github'
+									text='Sign in with Github'
+								/>
+							</div>
 						</div>
 					</div>
-				</main>
+				</div>
 			</div>
 		</>
 	)
