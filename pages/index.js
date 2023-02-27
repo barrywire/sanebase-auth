@@ -1,12 +1,29 @@
 // Next imports
 import Head from 'next/head'
 
+// Utility imports
+import { UserAuth } from '../utility/AuthContext'
+
 // Component imports
 import SocialButton from '../components/buttons/SocialButton'
 
 
 export default function Home()
 {
+
+	const { user, google_sign_in, sign_out } = UserAuth()
+
+	const handle_google_sign_in = async () =>
+	{
+		try
+		{
+			await google_sign_in();
+		} catch (error)
+		{
+			console.log(error);
+		}
+	}
+
 	return (
 		<>
 			<Head>
@@ -19,13 +36,13 @@ export default function Home()
 				<div className="sm:mx-auto sm:w-full sm:max-w-md">
 
 					<h2 className="my-6 text-center text-7xl font-extrabold text-orange-500">SaneBase</h2>
-					<h2 className="mt-6 text-center text-3xl font-extrabold text-gray-900">Sign in to your account</h2>
-					<p className="mt-2 text-center text-sm text-gray-600">
+					<h2 className="mt-6 text-center text-2xl font-extrabold text-gray-900">Sign in to your account</h2>
+					{/* <p className="mt-2 text-center text-sm text-gray-600">
 						Or{' '}
 						<a href="#" className="font-medium text-orange-600 hover:text-orange-500">
 							start your 14-day free trial
 						</a>
-					</p>
+					</p> */}
 				</div>
 
 				<div className="mt-8 sm:mx-auto sm:w-full sm:max-w-md">
@@ -107,6 +124,7 @@ export default function Home()
 
 								<SocialButton
 									provider='google'
+									action={handle_google_sign_in}
 									text='Sign in with Google'
 								/>
 
