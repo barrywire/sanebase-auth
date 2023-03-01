@@ -4,3 +4,10 @@ const nextConfig = {
 }
 
 module.exports = nextConfig
+
+// Image
+module.exports = {
+  images: {
+    domains: ['lh3.googleusercontent.com'],
+  },
+}
